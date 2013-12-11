@@ -4,6 +4,3 @@
 [submodule "vendor/ReduxFramework"]
 	path = vendor/ReduxFramework
 	url = git@github.com:ReduxFramework/ReduxFramework.git
-[submodule "vendor/wp-less"]
-	path = vendor/wp-less
-	url = git@github.com:sanchothefat/wp-less.git
