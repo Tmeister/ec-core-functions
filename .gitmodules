@@ -1,6 +1,3 @@
 [submodule "vendor/cmb"]
 	path = vendor/cmb
 	url = git@github.com:humanmade/Custom-Meta-Boxes.git
-[submodule "vendor/ReduxFramework"]
-	path = vendor/ReduxFramework
-	url = git@github.com:ReduxFramework/ReduxFramework.git

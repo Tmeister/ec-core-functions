@@ -35,23 +35,9 @@ class ChavezCoreFunctions
 	var $theme_options;
 	function __construct()
 	{
-		global $theme_options;
-		add_action('after_setup_theme', array(
-			$this,
-			'load_theme_options'
-		));
 	}
 	function load_theme_options()
 	{
-		/**
-		 * Adding the Redux Framework and Theme Configuration Panel
-		 */
-		if (!class_exists('ReduxFramework') && file_exists(dirname(__FILE__) . '/vendor/ReduxFramework/ReduxCore/framework.php')) {
-			require_once (dirname(__FILE__) . '/vendor/ReduxFramework/ReduxCore/framework.php');
-		}
-		if (!isset($cendres) && file_exists(dirname(__FILE__) . '/lib/theme-options-config.php')) {
-			require_once (dirname(__FILE__) . '/lib/theme-options-config.php');
-		}
 	}
 }
 new ChavezCoreFunctions;
