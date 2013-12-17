@@ -14,19 +14,19 @@ if (!function_exists('ec_info_box')) {
 					'info_title'       => __('Title', 'geopoint'),
 					'info_description' => 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes.',
 					'info_external'    => false,
-					'learn_more'       => 'Learn More'
-
+					'learn_more'       => 'Learn More',
+					'el_class'         => ''
      			),
      			$atts
      		)
 		);
-		$extra_class = '';
+		$extra_class = $el_class;
 		if( $info_external ){
 			$external_link = vc_build_link($info_external);
 		}
 		if( $header_image ){
 			$image = wp_get_attachment_image( $header_image, 'full' );
-			$extra_class = 'image-media';
+			$extra_class .= ' image-media';
 		}
 		ob_start();
 	?>
@@ -80,17 +80,18 @@ if (!function_exists('ec_info_box')) {
 */
 if (function_exists('vc_map')) {
 	vc_map(array(
-		'name'     => 'Info Box',
-		'base'     => 'ec_info_box',
-		'category' => 'Content',
-		'class'    => '',
-		"show_settings_on_create" => true,
-		'params'   => array(
+		'name'                    => __('Info Box', 'geopoint'),
+		'base'                    => 'ec_info_box',
+		'category'                => 'Content',
+		'class'                   => '',
+		'show_settings_on_create' => true,
+		'params'                  => array(
 			array(
 				'type'        => 'dropdown',
 				'class'       => '',
 				'heading'     => __('Media Type', 'geopoint'),
 				'param_name'  => 'media_type',
+				'holder'      => 'div',
 				'description' => __('What do you want to use, Icons or Image for the info box header?', 'geopoint'),
 				'value'       => array(
 					__('Icon', 'geopoint') => 'icon',
@@ -114,7 +115,6 @@ if (function_exists('vc_map')) {
 			),
 			array(
 				'type'        => 'textfield',
-				'holder'      => 'div',
 				'class'       => '',
 				'heading'     => __('Info Box Title', 'geopoint'),
 				'param_name'  => 'info_title',
@@ -141,10 +141,12 @@ if (function_exists('vc_map')) {
 				'param_name'  => 'learn_more',
 				'description' => __('Type the copy for the "Learn More" link text. Default_ "Learn More"', 'geopoint')
 			),
-
-
-
-
+			array(
+				'type' => 'textfield',
+				'heading' => __('Extra class name', "js_composer"),
+				'param_name' => 'el_class',
+				'description' => __('If you wish to style particular content element differently, then use this field to add a class name and then refer to it in your css file.', 'js_composer')
+		    )
 		)
 	));
 }
